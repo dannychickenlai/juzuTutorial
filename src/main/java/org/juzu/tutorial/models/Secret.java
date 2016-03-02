@@ -2,11 +2,14 @@ package org.juzu.tutorial.models;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
+import java.util.Set;
 
-public class Secret implements Serializable {
+public class Secret extends Model {
   private String message;
   private String imageURL;
-  private Date createdDate;
+  private Set<String> likes;
+  private List<Comment> comments;
   
   public Secret() {}
 
@@ -26,12 +29,20 @@ public class Secret implements Serializable {
     this.imageURL = imageURL;
   }
 
-  public Date getCreatedDate() {
-    return createdDate;
+  public List<Comment> getComments() {
+    return comments;
   }
 
-  public void setCreatedDate(Date createdDate) {
-    this.createdDate = createdDate;
+  public void setComments(List<Comment> comments) {
+    this.comments = comments;
+  }
+
+  public Set<String> getLikes() {
+    return likes;
+  }
+
+  public void setLikes(Set<String> likes) {
+    this.likes = likes;
   }
   
   
