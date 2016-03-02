@@ -14,6 +14,26 @@
  * limitations under the License.
  */
 
+/*
+ *  juzu beans :  controllers, template, plugins, application services
+ *  IOC container manage lifecycle : instantiation , inject , dependencies
+ *  inject template in a controler by @Inject  
+ */
+
+/*
 @juzu.Application
 @juzu.plugin.servlet.Servlet(value = "/")
 package org.juzu.tutorial;
+*/
+
+@juzu.Application(defaultController = org.juzu.tutorial.JuZcretApplication.class )
+@Bindings({
+  @Binding(value = org.juzu.tutorial.services.SecretService.class, implementation = org.juzu.tutorial.services.SercretServiceMemImpl.class,
+      scope = juzu.Scope.SINGLETON)
+})
+package org.juzu.tutorial;
+
+import juzu.Scope;
+import juzu.plugin.binding.Binding;
+import juzu.plugin.binding.Bindings;
+
